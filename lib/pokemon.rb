@@ -9,6 +9,7 @@ class Pokemon
     self.id = id
     self.name = name
     self.type = type
+    self.hp = 60
     @@all << self
   end
 
