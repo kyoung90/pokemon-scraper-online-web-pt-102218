@@ -32,7 +32,7 @@ class Pokemon
     if self.all.detect{|pokemon| pokemon.id == id}
       self.all.detect{|pokemon| pokemon.id == id}
     else
-      Pokemon.new(id.to_s, pokemon_from_db[0][1].to_s, pokemon_from_db[0][2].to_s)
+      Pokemon.new(id.to_s, pokemon_from_db[0][1].to_s, pokemon_from_db[0][2].to_s, db)
     end
   end
 
