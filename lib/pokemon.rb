@@ -22,9 +22,8 @@ class Pokemon
   end
 
   def self.find(id, db)
-    list = db.execute("SELECT * FROM pokemon WHERE id=?", id)
+    # list = db.execute("SELECT * FROM pokemon WHERE id=?", id)
     self.all.detect{|pokemon| pokemon.id == id}
-    binding.pry
   end
 
   def alter_hp(new_hp, db)
