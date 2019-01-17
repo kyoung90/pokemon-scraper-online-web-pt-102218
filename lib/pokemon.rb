@@ -32,10 +32,10 @@ class Pokemon
     if self.all.detect{|pokemon| pokemon.id == id}
       self.all.detect{|pokemon| pokemon.id == id}
     else
-      Pokemon.new(id, pokemon_from_db[0][1], pokemon_from_db[0][2], db)
+      Pokemon.new(id: id, name: pokemon_from_db[0][1], type: pokemon_from_db[0][2], db: db)
     end
   end
-
+{Pokemon.new(id: 1, name: "Pikachu", type: "electric", db: @db)}
   def alter_hp(new_hp, db)
     db.execute("UPDATE pokemon SET hp=? WHERE id=?", new_hp, self.id)
     self.hp = new_hp
