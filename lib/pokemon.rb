@@ -19,7 +19,6 @@ class Pokemon
 
   def self.save(name, type, db)
     db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)", name, type)
-    binding.pry
   end
 
   def self.find(id, db)
@@ -32,15 +31,14 @@ class Pokemon
     # that defaults to nil if not set (so it still passes the non-bonus tests)
     if self.all.detect{|pokemon| pokemon.id == id}
       self.all.detect{|pokemon| pokemon.id == id}
-    else 
+    else
       Pokemon.new(id, pokemon_from_db[0][1], pokemon_from_db[0][2])
-    end 
+    end
   end
 
   def alter_hp(new_hp, db)
     db.execute("UPDATE pokemon SET hp=? WHERE id=?", new_hp, self.id)
     self.hp = new_hp
-    binding.pry
   end
 
 end
