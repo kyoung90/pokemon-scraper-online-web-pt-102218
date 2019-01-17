@@ -22,10 +22,12 @@ class Pokemon
   end
 
   def self.find(id, db)
-    # list = db.execute("SELECT * FROM pokemon WHERE id=?", id)
-    # The find method should create a new Pokemon object with an id, type, name 
+    pokemon_from_db = db.execute("SELECT * FROM pokemon WHERE id=?", id)
+    
+    
+    # The find method should create a new Pokemon object with an id, type, name
     # AND hp after selecting their row from the database by their id number.
-    # remember to also update the initialize method to accept an argument of hp 
+    # remember to also update the initialize method to accept an argument of hp
     # that defaults to nil if not set (so it still passes the non-bonus tests)
     self.all.detect{|pokemon| pokemon.id == id}
   end
